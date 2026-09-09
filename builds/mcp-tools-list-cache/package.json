@@ -1,0 +1,25 @@
+{
+  "name": "radar-mcp-tools-cache",
+  "version": "1.0.0",
+  "description": "Minimal MCP stdio proxy that caches tools/list responses",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "mcp-tools-cache-proxy": "./dist/proxy.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "demo": "tsx scripts/demo.ts",
+    "proxy": "tsx src/proxy.ts",
+    "mock-server": "tsx src/mock-server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
