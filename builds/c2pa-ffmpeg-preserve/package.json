@@ -1,0 +1,13 @@
+{
+  "name": "c2pa-ffmpeg-preserve",
+  "version": "0.1.0",
+  "description": "FFmpeg wrapper + bank showing which transforms destroy C2PA manifests",
+  "type": "module",
+  "scripts": {
+    "bank": "node scripts/run-bank.mjs",
+    "demo": "node scripts/run-bank.mjs",
+    "wrap": "node src/cli.mjs"
+  },
+  "license": "MIT",
+  "engines": { "node": ">=20" }
+}

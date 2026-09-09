@@ -1,0 +1,15 @@
+{
+  "alg": "ps256",
+  "private_key": "ps256.pem",
+  "sign_cert": "ps256.pub",
+  "claim_generator": "c2pa-ffmpeg-preserve-test",
+  "title": "Radar C2PA fixture",
+  "assertions": [
+    {
+      "label": "c2pa.actions",
+      "data": {
+        "actions": [{ "action": "c2pa.created" }]
+      }
+    }
+  ]
+}

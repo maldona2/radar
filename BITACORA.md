@@ -148,6 +148,8 @@ Corta — 6-12 meses, la más apretada de las cuatro, porque la obligación ya e
 
 **Estado:** ESTABLE
 
+**[2026-09-09] SOLO #3 cerrado (MVP).** Banco en `builds/c2pa-ffmpeg-preserve`: **7/7** transforms ffmpeg destruyen C2PA (incluido remux). Veredicto: publicar el número; no escalar a producto sin señal externa. Detalle: `builds/c2pa-ffmpeg-preserve/VEREDICTO.md`.
+
 ---
 
 ### [2026-09-07] Tesis 5 — Terraform para agentes: Anthropic define el patrón, nadie construyó el backend de estado compartido
