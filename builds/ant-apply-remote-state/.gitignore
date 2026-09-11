@@ -3,3 +3,4 @@ node_modules/
 *.log
 claude-lock.json
 .DS_Store
+.deploy-token

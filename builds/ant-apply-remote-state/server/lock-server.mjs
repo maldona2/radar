@@ -21,7 +21,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = process.env.ANT_APPLY_DATA_DIR || path.join(ROOT, '.data');
 const PORT = Number(process.env.PORT || process.env.ANT_APPLY_LOCK_PORT || 8787);
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || (process.env.RAILWAY_ENVIRONMENT || process.env.PORT ? '0.0.0.0' : '127.0.0.1');
 const TOKEN = process.env.ANT_APPLY_TOKEN || '';
 const DEFAULT_TTL = Number(process.env.ANT_APPLY_DEFAULT_TTL || 120);
 

@@ -121,3 +121,20 @@ ant-apply-remote-state/
 ## License
 
 MIT © 2026 Matías Maldonado
+
+## Railway
+
+```bash
+# deploy from this directory
+railway up -y -m "lock server MVP"
+
+# set a shared secret (recommended)
+railway variable set ANT_APPLY_TOKEN=<secret>
+
+# public URL → use as ANT_APPLY_LOCK_URL for the wrapper
+export ANT_APPLY_LOCK_URL=https://<your-service>.up.railway.app
+export ANT_APPLY_TOKEN=<secret>
+ant-apply-locked --simulate --project demo
+```
+
+Nota: el filesystem de Railway es efímero — locks/state se pierden al redeploy. Para prod real: volume o S3/R2. OK para demo.
