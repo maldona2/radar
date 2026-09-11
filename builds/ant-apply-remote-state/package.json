@@ -1,0 +1,25 @@
+{
+  "name": "ant-apply-remote-state",
+  "version": "0.1.0",
+  "description": "External remote lock + state for Anthropic ant apply / claude-lock.json (Radar T5)",
+  "type": "module",
+  "bin": {
+    "ant-apply-locked": "./bin/ant-apply-locked.mjs"
+  },
+  "scripts": {
+    "start": "node server/lock-server.mjs",
+    "demo:race": "node scripts/demo-race.mjs",
+    "test": "node scripts/test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "keywords": [
+    "anthropic",
+    "ant-apply",
+    "claude-lock",
+    "remote-state",
+    "lock"
+  ]
+}
