@@ -22,9 +22,24 @@ IA / infraestructura · Energía y hardware · Bio / salud / materiales · Finte
 
 ---
 
+## SOLOs hechos — no re-proponer
+
+Cada corrida **debe leer esta tabla antes** de rankear `[SOLO]` accionables. Si el wedge ya está acá, no vuelve a la lista ni como “evolución del draft” salvo que Matias pida explícitamente el siguiente paso.
+
+| # | Tesis | Build / veredicto | Estado |
+|---|-------|-------------------|--------|
+| SOLO #1 | T2 — Caché `tools/list` MCP | `builds/mcp-tools-list-cache` | **KILL** — latency ya ~2ms; dolor = schema bloat → `GITLAB_TOOLSETS` |
+| SOLO #2 | T1 — Mandato JWT + guard MCP | `~/Coding/radar/builds/agent-mandate` (piloto `dev-write` hasta ~23/9) | **MVP hecho** — no re-proponer “verificador + demo MCP”; alinear al draft Mission es *otro* ticket solo con OK |
+| SOLO #3 | T4 — C2PA × ffmpeg | `builds/c2pa-ffmpeg-preserve` (`VEREDICTO.md`) | **MVP hecho / stop deep** — publish 7/7; no SaaS sin señal |
+
+Reglas para la lista accionable:
+1. Solo ideas **net-new** o un wedge claramente distinto (no el mismo MVP con otro nombre).
+2. Si una tesis ACELERA pero el SOLO ya está hecho → reportá la señal, **no** propongas rebuild.
+3. Propuesta de prototipo: una sola, y **nunca** una de esta tabla.
+
 ## Última corrida
 
-**2026-09-11** (America/Argentina/Tucuman). Sin tesis nuevas (filtro severo). Actualizaciones: T1 Mission draft latest 9/9; T2 AWS Well-Architected + shims/Tasks; T3 balloteo NERC en curso; T5/T6 NUEVA→ESTABLE; T7 →ACELERA (forms OCC 25/9).
+**2026-09-11** (America/Argentina/Tucuman). Sin tesis nuevas (filtro severo). **Corrección post-corrida:** el ranking [SOLO] recirculó wedges ya hechos (mandato / cache MCP / C2PA); se agregó la tabla *SOLOs hechos — no re-proponer*. Actualizaciones: T1 Mission draft latest 9/9; T2 AWS Well-Architected + shims/Tasks; T3 balloteo NERC en curso; T5/T6 NUEVA→ESTABLE; T7 →ACELERA (forms OCC 25/9).
 
 ## Tesis vivas
 
@@ -58,7 +73,7 @@ Firmar los requests salientes va a ser tan dado por sentado como tener TLS. Pero
 Nadie cubre el *on-behalf-of*. El AS ve una URL, no un mandato. Falta concretamente: (a) un formato de mandato — alcance, monto, comerciante, frecuencia, vencimiento — verificable por cualquier contraparte antes de ejecutar; (b) un lugar donde el usuario lo revoque una sola vez y valga en todas las plataformas; (c) un audit trail con integridad probatoria, que es lo que SAFR pide sin decir en qué formato; (d) reputación/atestación de identificadores-URL: quién opera esa URL, qué organización legal hay detrás, qué incidentes tuvo. Hoy la única respuesta operativa a (d) es "estar en la lista de Cloudflare".
 
 **Ideas paralelas:**
-1. `[SOLO]` **Librería + spec de mandato de agente.** Un formato firmado (JWT/VC) que expresa "el agente en la URL X actúa por el usuario Y, hasta $Z, en el dominio W, hasta la fecha F", con verificador en las tres o cuatro runtimes que importan y adaptadores para MCP y OAuth CIMD. *Primera versión mínima:* el verificador y una demo end-to-end donde un server MCP rechaza una tool call cuyo mandato no cubre el alcance pedido. Esto es un fin de semana de código y un año de posicionamiento — el que escribe la implementación de referencia influye sobre el estándar.
+1. `[SOLO]` ~~**Librería + spec de mandato de agente.**~~ **HECHO (SOLO #2, 2026-09-09):** MVP JWT + guard MCP en `agent-mandate`; piloto en curso. No re-proponer. El draft Mission (9/9) es señal de tesis, no ticket automático de rebuild. Un formato firmado (JWT/VC) que expresa "el agente en la URL X actúa por el usuario Y, hasta $Z, en el dominio W, hasta la fecha F", con verificador en las tres o cuatro runtimes que importan y adaptadores para MCP y OAuth CIMD. *Primera versión mínima:* el verificador y una demo end-to-end donde un server MCP rechaza una tool call cuyo mandato no cubre el alcance pedido. Esto es un fin de semana de código y un año de posicionamiento — el que escribe la implementación de referencia influye sobre el estándar.
 2. `[SOLO]` **Consola de mandatos del lado usuario.** Un solo lugar donde ver todos los agentes que actúan por vos, con qué límites, y matarlos. Empieza como herramienta open source; el registro que la respalda es el negocio.
 3. `[CAPITAL]` **Registro neutral de identidad y reputación de agentes.** La barrera es de distribución y confianza, no técnica: hay que ser creíble para verificadores del lado servidor y sobrevivir a que Cloudflare quiera ser eso mismo. Solo tiene sentido con respaldo institucional.
 
@@ -88,7 +103,7 @@ La spec MCP `2026-07-28` eliminó el handshake `initialize`/`initialized` y el h
 La spec habilita el ruteo y deja explícitamente fuera de alcance todo lo demás. Falta: gateway de grado producción con autorización *por herramienta individual* (no por servidor), quotas por `Mcp-Name`, auditoría y DLP sobre argumentos y resultados; caché compartida de `tools/list` — `ttlMs` y `cacheScope` son metadata nueva sin implementación de referencia, falta el Varnish de catálogos de herramientas; y store durable para el nuevo Multi Round-Trip Request (`resultType: "input_required"`), que trasladó al cliente la responsabilidad del estado de interacciones a medio completar. *(Inferencia: eso último es lo que va a doler primero en producción.)*
 
 **Ideas paralelas:**
-1. `[SOLO]` **Caché de `tools/list` como proxy de una línea.** Lo más chico y lo más inmediatamente útil. *Primera versión mínima:* un proxy que respeta `ttlMs`/`cacheScope` y mide cuánto latency y cuántos tokens ahorra en un host real. Si el número es bueno, el número es el marketing.
+1. `[SOLO]` ~~**Caché de `tools/list` como proxy de una línea.**~~ **KILL (SOLO #1, 2026-09-09):** proxy inútil vs GitLab real; pivot a pruning/`GITLAB_TOOLSETS`. Lo más chico y lo más inmediatamente útil. *Primera versión mínima:* un proxy que respeta `ttlMs`/`cacheScope` y mide cuánto latency y cuántos tokens ahorra en un host real. Si el número es bueno, el número es el marketing.
 2. `[SOLO]` **Shim de migración legacy → 2026-07-28.** Roots, Sampling, Logging y el transporte HTTP+SSE vencen a mediados de 2027. Es un nicho con fecha de vencimiento — precisamente por eso nadie grande lo va a atender, y es la puerta de entrada a los clientes que después necesitan el gateway.
 3. `[CAPITAL]` **Gateway de política MCP para empresa.** La barrera es de venta, no de código: hay que entrar en el ciclo de compra de seguridad corporativa. Los gateways MCP existentes fueron diseñados contra el modelo con sesión y quedan arquitectónicamente desalineados — esa es la apertura.
 
