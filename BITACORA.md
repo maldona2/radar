@@ -31,6 +31,7 @@ Cada corrida **debe leer esta tabla antes** de rankear `[SOLO]` accionables. Si 
 | SOLO #1 | T2 — Caché `tools/list` MCP | `builds/mcp-tools-list-cache` | **KILL** — latency ya ~2ms; dolor = schema bloat → `GITLAB_TOOLSETS` |
 | SOLO #2 | T1 — Mandato JWT + guard MCP | `~/Coding/radar/builds/agent-mandate` (piloto `dev-write` hasta ~23/9) | **MVP hecho** — no re-proponer “verificador + demo MCP”; alinear al draft Mission es *otro* ticket solo con OK |
 | SOLO #3 | T4 — C2PA × ffmpeg | `builds/c2pa-ffmpeg-preserve` (`VEREDICTO.md`) | **MVP hecho / stop deep** — publish 7/7; no SaaS sin señal |
+| SOLO #4 | T5 — Backend remoto `ant apply` | `builds/ant-apply-remote-state` | **MVP hecho (2026-09-11)** — lock HTTP + wrapper + `demo:race` PASS; stop deep hasta señal / Anthropic remote state |
 
 Reglas para la lista accionable:
 1. Solo ideas **net-new** o un wedge claramente distinto (no el mismo MVP con otro nombre).
@@ -195,7 +196,7 @@ El 3/9/2026 Anthropic incorporó `ant apply` a la CLI `ant` (v1.30.0): gestiona 
 Falta exactamente lo que en el mundo Terraform resolvieron Terraform Cloud, Atlantis, Spacelift, env0: (a) backend de estado remoto y compartido para equipos; (b) locking distribuido para applies concurrentes; (c) aprobaciones vía PR y rollback versionado; (d) — la parte nueva — todo esto cruzando múltiples proveedores de agentes (Anthropic, OpenAI, Google), no solo uno.
 
 **Ideas paralelas:**
-1. `[SOLO]` **Backend de estado remoto para `ant apply`.** Un servicio mínimo que reemplace el lockfile local por estado compartido con locking, compatible con el formato que ya definió Anthropic. *Primera versión mínima:* un backend tipo S3+lock (el mismo patrón que usó Terraform en sus primeros años) que dos personas puedan usar sin pisarse el `apply`.
+1. `[SOLO]` ~~**Backend de estado remoto para `ant apply`.**~~ **HECHO (SOLO #4, 2026-09-11):** `builds/ant-apply-remote-state` — lock HTTP + wrapper + demo:race PASS. No re-proponer; kill si Anthropic shippea remote state. Un servicio mínimo que reemplace el lockfile local por estado compartido con locking, compatible con el formato que ya definió Anthropic. *Primera versión mínima:* un backend tipo S3+lock (el mismo patrón que usó Terraform en sus primeros años) que dos personas puedan usar sin pisarse el `apply`.
 2. `[SOLO]` **Wrapper de CI tipo Atlantis-para-agentes.** Plan en el PR, apply al mergear. Es la integración más pedida en el mundo Terraform y acá no existe ninguna todavía.
 3. `[CAPITAL]` **Terraform Cloud para agentes, cross-vendor.** La barrera es cubrir múltiples proveedores con formatos de recurso distintos y venderle a equipos de plataforma — es un producto de infraestructura serio, no un fin de semana.
 
