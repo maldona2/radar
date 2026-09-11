@@ -38,6 +38,20 @@ Reglas para la lista accionable:
 2. Si una tesis ACELERA pero el SOLO ya está hecho → reportá la señal, **no** propongas rebuild.
 3. Propuesta de prototipo: una sola, y **nunca** una de esta tabla.
 
+
+## Norte del Radar (reorientado 2026-09-11)
+
+**Objetivo:** hallar un hueco pionero a **3–7 años** (necesidad/infra dada por sentada) y construir temprano un producto con camino a valor al madurar. Sin presión de ingreso ya.
+
+**Perfil:** builder generalista; valt-web = laburo (no producto); interés en agentes; LatAm/empresas reales; software-only.
+
+**Filtro de apuesta:** inevitable documentado + buildable solo + distribución creíble + buyer nombrable + moat ≠ “falta un RFC”.
+
+**Anti:** wrappers/demos/fichas técnicas como apuesta principal; recircular SOLOs hechos.
+
+### Apuestas candidatas (snapshot 2026-09-11)
+Ver mensaje Chief of Staff del mismo día. Ranking vivo se actualiza en corridas mar/vie.
+
 ## Última corrida
 
 **2026-09-11** (America/Argentina/Tucuman). Sin tesis nuevas (filtro severo). **Corrección post-corrida:** el ranking [SOLO] recirculó wedges ya hechos (mandato / cache MCP / C2PA); se agregó la tabla *SOLOs hechos — no re-proponer*. Actualizaciones: T1 Mission draft latest 9/9; T2 AWS Well-Architected + shims/Tasks; T3 balloteo NERC en curso; T5/T6 NUEVA→ESTABLE; T7 →ACELERA (forms OCC 25/9).
