@@ -22,17 +22,21 @@ IA / infraestructura · Energía y hardware · Bio / salud / materiales · Finte
 
 ---
 
+## Última corrida
+
+**2026-09-11** (America/Argentina/Tucuman). Sin tesis nuevas (filtro severo). Actualizaciones: T1 Mission draft latest 9/9; T2 AWS Well-Architected + shims/Tasks; T3 balloteo NERC en curso; T5/T6 NUEVA→ESTABLE; T7 →ACELERA (forms OCC 25/9).
+
 ## Tesis vivas
 
 | # | Tesis | Ámbito | Estado | Última revisión |
 |---|-------|--------|--------|-----------------|
-| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-07 |
-| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-07 |
-| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-07 |
-| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-07 |
-| 5 | Terraform para agentes | IA / infraestructura | NUEVA | 2026-09-07 |
-| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | NUEVA | 2026-09-07 |
-| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | NUEVA | 2026-09-07 |
+| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-11 |
+| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-11 |
+| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-11 |
+| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-11 |
+| 5 | Terraform para agentes | IA / infraestructura | ESTABLE | 2026-09-11 |
+| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | ESTABLE | 2026-09-11 |
+| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | ACELERA | 2026-09-11 |
 
 ---
 
@@ -61,6 +65,8 @@ Nadie cubre el *on-behalf-of*. El AS ve una URL, no un mandato. Falta concretame
 **Ventana:**
 Estimo 12-24 meses. Los drafts son individual/WG submissions, ninguno es RFC. SAFR y Mills son explícitamente **no vinculantes** — ese es el momento previo a la norma, no el posterior, y es exactamente donde un formato puede quedar consagrado. Riesgo de cierre: Cloudflare ya opera el trust registry de facto ([Verified Bots con Message Signatures](https://blog.cloudflare.com/verified-bots-with-cryptography/)) y va a intentar quedarse con la capa de reputación. La jugada no es competir con su edge, es la capa portable con delegación por usuario, que a ellos no les interesa.
 
+**[2026-09-11]** Señal fuerte del lado estándar: el draft individual [Mission-Bound Authorization for OAuth 2.0](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/) (`draft-mcguinness-oauth-mission`) tiene revisión **latest publicada el 9/9/2026** en el sitio del autor ([HTML](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html); -00 en datatracker sigue fechado 6/7/2026). Define exactamente el objeto que esta tesis nombraba — *Mission*: Intent → Authority Set → approval con `intent_hash`/`authority_hash` → tokens con claim `mission`, gated por lifecycle — y deja runtime enforcement en un companion separado ([Mission Mandate](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-mandate.html), [Mission Runtime](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-runtime.html)). Incluye mapeo explícito de tools MCP a `mission_resource_access`. Sigue siendo individual submission, no WG; **no hay implementación de referencia usable**. La carencia de producto (verificador + consola de mandatos) no se cerró — se volvió más concreta: ahora hay un formato candidato contra el cual implementar.
+
 **Estado:** ACELERA
 
 ---
@@ -88,6 +94,8 @@ La spec habilita el ruteo y deja explícitamente fuera de alcance todo lo demás
 
 **Ventana:**
 12-18 meses. La spec tiene menos de un mes y los SDKs salieron en beta en la misma ventana. Se cierra cuando los cloud vendors agreguen soporte MCP nativo en sus API gateways — pero el gateway genérico no llega a la política *específica de herramientas*, y ahí queda espacio más tiempo.
+
+**[2026-09-11]** Cloud vendors operacionalizan el gateway MCP: AWS publicó (1/9/2026) el post de Architecture [*MCP went stateless… Well-Architected*](https://aws.amazon.com/blogs/architecture/mcp-went-stateless-is-your-aws-mcp-server-deployment-well-architected/) mapeando 2026-07-28 al Agentic AI Lens, y AgentCore Gateway ya admite `2026-07-28` vía `UpdateGateway` ([ML blog](https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/)). En paralelo aparecen shims OSS de migración legacy→stateless ([mcp-uplift](https://github.com/MohibShaikh/mcp-uplift), [mcpsense-proxy](https://github.com/comerade2134/mcpsense-proxy)) y una lib que honra `ttlMs`/`cacheScope` ([mcp-cache-kit](https://github.com/studiomeyer-io/mcp-cache-kit)). Microsoft publicó (7/8/2026) el sample durable de **MCP Tasks** sobre App Service + Table Storage + Service Bus ([Tech Community](https://techcommunity.microsoft.com/blog/appsonazureblog/build-durable-long-running-mcp-tasks-on-azure-app-service/4545170)) — confirma que el handle de task ≠ trabajo durable. El shim de migración (idea SOLO #2) se está llenando; la caché de catálogo tiene primer kit. **Sigue vacío** el gateway de política *por herramienta* cross-cliente y un store durable *portable* (SQLite/Postgres, no atado a Azure) para Tasks/MRTR.
 
 **Estado:** ACELERA
 
@@ -118,6 +126,8 @@ Es casi puramente de software, y es la más limpia de las cuatro tesis por una r
 **Ventana:**
 12-24 meses, y con reloj visible: el estándar NERC se escribe *ahora* (borrador a diciembre 2026), y la filing de PJM tiene menos de dos semanas. Los incumbentes (consultoras de potencia, EMS como GE Vernova o Hitachi) están todos del lado *red*; del lado *cómputo* no hay nadie. Se cierra cuando NERC publique requisitos concretos y las consultoras grandes armen la práctica. Con el borrador ya en comment period y balloteo activo, el reloj empezó a correr en serio.
 
+**[2026-09-11]** Reloj vivo: el balloteo inicial de CLO-001-1 / CLO-002-1 / CLO-003-1 + FAC-001-5 / FAC-002-5 corre **9–18/9/2026** (cierra 18/9 20:00 ET); comment period ROP cierra el mismo día ([boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [ROP page](https://www.nerc.com/who-we-are/rules-of-procedure/proposed-changes-to-rules-of-procedure)). PJM IRAS / Large Load Registry (docket ER26-3515-000): comentarios cerraron 3/9; effective date pedida **12/10/2026** ([Power Mag](https://www.powermag.com/pjm-widens-response-to-data-center-load-as-capacity-shortfalls-deepen/); [Data Center Knowledge](https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts)). La carencia del traductor scheduler↔modelo eléctrico no tiene producto nuevo visible. **Bloqueo [SOLO] #1 (simulador):** validar predicción vs medición real exige cluster instrumentado (GPU/DCGM) que Matias no tiene — no proponer build hasta acceso a telemetría real o dataset público equivalente.
+
 **Estado:** ACELERA
 
 ---
@@ -146,9 +156,11 @@ C2PA/CAWG definen el *formato*; nadie provee el *servicio*. Falta: (a) un verifi
 **Ventana:**
 Corta — 6-12 meses, la más apretada de las cuatro, porque la obligación ya está viva. Diciembre de 2026 es el punto de inflexión de demanda. Se cierra cuando un hyperscaler ofrezca verificación de procedencia gestionada. La idea 1 es la que mejor sobrevive a eso, porque vive en el pipeline del cliente y no compite con un servicio.
 
-**Estado:** ESTABLE
-
 **[2026-09-09] SOLO #3 cerrado (MVP).** Banco en `builds/c2pa-ffmpeg-preserve`: **7/7** transforms ffmpeg destruyen C2PA (incluido remux). Veredicto: publicar el número; no escalar a producto sin señal externa. Detalle: `builds/c2pa-ffmpeg-preserve/VEREDICTO.md`.
+
+**[2026-09-11]** Sin novedades de la Comisión Europea en la ventana 7–11/9 sobre Art. 50 / Code of Practice. Cuenta regresiva al **2/12/2026** (~82 días). El MVP del banco de destrucción C2PA sigue siendo el artefacto accionable; no hay señal externa nueva que justifique escalar a producto.
+
+**Estado:** ESTABLE
 
 ---
 
@@ -175,7 +187,9 @@ Falta exactamente lo que en el mundo Terraform resolvieron Terraform Cloud, Atla
 **Ventana:**
 6-12 meses. La herramienta tiene días. Se cierra cuando Anthropic mismo construya el backend de estado (es la extensión obvia de lo que ya publicaron) o cuando HashiCorp/Pulumi anuncien soporte de providers para recursos de agentes.
 
-**Estado:** NUEVA
+**[2026-09-11]** Cobertura comunitaria del patrón (QA/ops posts 8/9) pero **ningún backend remoto** apareció: `claude-lock.json` sigue sin locking distribuido; Anthropic no anunció estado compartido. La carencia (S3+lock / Atlantis-para-agentes) está igual de abierta. Pasa de NUEVA → ESTABLE: el patrón quedó confirmado, no aceleró el cierre del hueco.
+
+**Estado:** ESTABLE
 
 ---
 
@@ -202,7 +216,9 @@ Cada proveedor está armando su propio protocolo de sesión larga sin ningún es
 **Ventana:**
 6-12 meses, la más corta de las nuevas: la feature tiene días y es de un solo proveedor. Se cierra rápido si Anthropic o Google lanzan algo equivalente con semántica incompatible, fragmentando el problema antes de que alguien lo estandarice.
 
-**Estado:** NUEVA
+**[2026-09-11]** Docs de OpenAI ahora explicitan patrones de *Reconnect and recover* tras el límite de 60 min / drop ([WebSocket Mode guide](https://developers.openai.com/api/docs/guides/websocket-mode)); el SDK Node expone helpers de reconnect con backoff. Confirma el hueco: la conexión-local cache muere con el socket; sin `store=true` + `previous_response_id` (o replay full input) no hay recuperación. Nadie productizó un gateway de checkpoint mid-tool-call multi-proveedor. Pasa NUEVA → ESTABLE.
+
+**Estado:** ESTABLE
 
 ---
 
@@ -229,7 +245,9 @@ Ninguna carta ni norma viene con la herramienta de cumplimiento adentro. Falta: 
 **Ventana:**
 6-12 meses — la más apretada de las nuevas, con dos relojes concretos: el comment period de MAS cierra el 16/10/2026 y la regla final de la OCC bajo GENIUS Act llega en noviembre 2026. Se cierra cuando la OCC publique la regla final y el mercado se consolide alrededor de los primeros compliance vendors que ya estén listos ese día.
 
-**Estado:** NUEVA
+**[2026-09-11]** Dos relojes se aprietan: (1) OCC pide comentarios sobre **formularios de aplicación PPSI** (information collection) hasta el **25/9/2026** ([Federal Register 2026-15088](https://www.federalregister.gov/documents/2026/07/27/2026-15088/agency-information-collection-activities-proposed-information-collection-comment-request); [Orrick](https://infobytes.orrick.com/2026-07-31/occ-seeks-input-on-payment-stablecoin-licensing-and-registration-applications/)) — es la forma concreta del process de licensing, no la regla final; (2) consultation MAS P015-2026 sigue abierta hasta **16/10/2026** ([MAS](https://www.mas.gov.sg/publications/consultations/2026/consultation-on-proposed-amendments-to-the-payment-services-act-for-stablecoin-regulation)). Cliff estatutario GENIUS Act: **18/1/2027**. Sin regla final OCC todavía (promesa noviembre). La demanda de kit de compliance readiness sube con el detalle de los forms. Pasa NUEVA → ACELERA.
+
+**Estado:** ACELERA
 
 ---
 
@@ -237,7 +255,7 @@ Ninguna carta ni norma viene con la herramienta de cumplimiento adentro. Falta: 
 
 - **KV cache entre proveedores.** [Paper de U. Chicago, 2/8/2026](https://arxiv.org/html/2608.01526v1) proponiendo tratar el KV cache como contenido distribuido tipo CDN. Falta el formato de intercambio, la atestación de integridad y el metering. Real, pero NVIDIA está construyendo el stack vertical y va a definir el formato de facto. Revisar si aparece algo neutral.
 - **Base die de HBM en nodo lógico** (Samsung en Hot Chips 2026). El hueco accesible es telemetría/RAS de flota y el toolchain de near-memory, no el silicio. Ventana 2-4 años — demasiado lejos para actuar, cerca para vigilar.
-- **FDA y dispositivos médicos con IA generativa — [2026-09-07] actualización:** más allá del discussion paper (18/8/2026, comentarios hasta 19/10/2026), el piloto **TEMPO** ya es real y no hipotético: deja lanzar dispositivos de IA generativa al mercado sin autorización previa de la FDA mientras se junta datos de uso real, con al menos dos participantes confirmados (Dexcom, Cadence/HypertensionOS) al 3/9/2026 ([STAT News](https://www.statnews.com/2026/09/03/tempo-fda-pilor-generative-ai-medical-device-regulation/); [FDA](https://www.fda.gov/medical-devices/digital-health-center-excellence/tempo-digital-health-devices-pilot)). El hueco que abre — monitoreo post-mercado en tiempo real tipo "flight recorder" regulatorio (logging inmutable, detección de drift, reporte automático de eventos adversos) — sigue siendo resuelto ad hoc por cada participante. Todavía en observación: son solo 2-4 dispositivos y el ciclo de escalado del piloto es incierto.
+- **FDA y dispositivos médicos con IA generativa — [2026-09-11] actualización:** cohort TEMPO confirmado en **4** participantes (Dexcom, SonderMind, Limbic/Unpacked voice-CBT, Cadence/HypertensionOS) per [FDA participants page](https://www.fda.gov/medical-devices/digital-health-center-excellence/participants-selected-tempo-digital-health-devices-pilot) / [Becker's](https://www.beckershospitalreview.com/healthcare-information-technology/digital-health/4-companies-sign-on-to-fdas-digital-device-pilot/). MedTech Dive (8/9/2026) cubre el discussion paper de genAI (comentarios hasta **19/10/2026**) y el pivot a postmarket monitoring + "competency-based assessment". El hueco del *flight recorder* post-mercado sigue ad hoc. Todavía observación: ≤40 slots totales anunciados, cohort chico.
 - **Screening de bioseguridad post-diseño-con-IA** ([Frontiers, 13/7/2026](https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2026.1858951/full)): la detección por identidad de secuencia se degrada por debajo del ~30%. El hueco más interesante es la correlación entre proveedores con preservación de privacidad — criptografía aplicada, sin wet lab. Fuera del radar activo por dificultad de venta, no por falta de mérito.
 - **LAP, protocolo agente↔instrumento** ([arXiv 2606.03755](https://arxiv.org/abs/2606.03755)). Los propios autores dicen v0.1 sin estatus normativo ni implementación. Probablemente prematuro: un protocolo sin usuarios muere.
 - **[2026-09-07] Estándar de refrigeración líquida tropical de Singapur (SS 726:2026).** IMDA/Enterprise Singapore publicaron el 27/8/2026 el primer estándar del mundo de refrigeración líquida para datacenters en clima tropical — carga de piso, calidad de fluido, corrosión/biofilm, water efficiency ([Enterprise Singapore, PDF](https://www.enterprisesg.gov.sg/-/media/esg/files/media-centre/media-releases/2026/august/mr03826_singapore-launches-worlds-first-liquid-cooling-standard-for-data-centres-in-tropical-climates.pdf)). El hueco es real — falta el "UL" que certifique cumplimiento contra corrosión/biofilm en clima cálido, y Data Center Knowledge (3/9/2026) documenta la corrosión como "governance gap" sin dueño claro — pero es un estándar voluntario sin body de certificación anunciado ni fecha de adopción obligatoria. Vigilar si aparece un ente certificador.
