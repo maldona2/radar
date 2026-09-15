@@ -49,24 +49,27 @@ Reglas para la lista accionable:
 
 **Anti:** wrappers/demos/fichas técnicas como apuesta principal; recircular SOLOs hechos.
 
-### Apuestas candidatas (snapshot 2026-09-11)
-Ver mensaje Chief of Staff del mismo día. Ranking vivo se actualiza en corridas mar/vie.
+### Apuestas candidatas (ranking vivo 2026-09-15)
+1. **WhatsApp-native B2B/SMB ops LatAm** — elegida / wedge diseñado (`builds/WEDGE-whatsapp-ops-latam.md`). Gate = acceso a conversaciones reales de plaza. Sin build hasta OK + vertical concreto.
+2. **Eval/governance layer for agent teams** — espacio fragmentado (toolkits vendor + OSS); no wedge personal hasta que #1 tenga piloto o muera.
+3. **Productized single-workflow agent mid-market** — mantener como cola; no abrir en paralelo.
 
 ## Última corrida
 
-**2026-09-11** (America/Argentina/Tucuman). Sin tesis nuevas (filtro severo). **Corrección post-corrida:** el ranking [SOLO] recirculó wedges ya hechos (mandato / cache MCP / C2PA); se agregó la tabla *SOLOs hechos — no re-proponer*. Actualizaciones: T1 Mission draft latest 9/9; T2 AWS Well-Architected + shims/Tasks; T3 balloteo NERC en curso; T5/T6 NUEVA→ESTABLE; T7 →ACELERA (forms OCC 25/9).
+**2026-09-15** (America/Argentina/Tucuman). Sin tesis net-new que pasen el filtro de apuesta (se formaliza T8 = apuesta #1 ya elegida). T1 sin revisión Mission post-9/9; T2 corrección: AWS AgentCore Policy/Cedar (21/8) llena el silo de política *por herramienta* — portable cross-cloud sigue abierto; T3 balloteo CLO **sigue abierto hasta 18/9 20:00 ET** (faltan ~3 días); T4 sin novedad Comisión (~78 días a 2/12); T5/T6 sin cierre del hueco; T7 relojes vivos (OCC forms **25/9**, MAS **16/10**). Ranking de laburo: seguir en wedge WhatsApp; no builds sin OK.
 
 ## Tesis vivas
 
 | # | Tesis | Ámbito | Estado | Última revisión |
 |---|-------|--------|--------|-----------------|
-| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-11 |
-| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-11 |
-| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-11 |
-| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-11 |
-| 5 | Terraform para agentes | IA / infraestructura | ESTABLE | 2026-09-11 |
-| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | ESTABLE | 2026-09-11 |
-| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | ACELERA | 2026-09-11 |
+| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-15 |
+| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-15 |
+| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-15 |
+| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-15 |
+| 5 | Terraform para agentes | IA / infraestructura | ESTABLE | 2026-09-15 |
+| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | ESTABLE | 2026-09-15 |
+| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | ACELERA | 2026-09-15 |
+| 8 | WhatsApp como riel de ops B2B/SMB LatAm | Ops / LatAm | NUEVA | 2026-09-15 |
 
 ---
 
@@ -96,6 +99,8 @@ Nadie cubre el *on-behalf-of*. El AS ve una URL, no un mandato. Falta concretame
 Estimo 12-24 meses. Los drafts son individual/WG submissions, ninguno es RFC. SAFR y Mills son explícitamente **no vinculantes** — ese es el momento previo a la norma, no el posterior, y es exactamente donde un formato puede quedar consagrado. Riesgo de cierre: Cloudflare ya opera el trust registry de facto ([Verified Bots con Message Signatures](https://blog.cloudflare.com/verified-bots-with-cryptography/)) y va a intentar quedarse con la capa de reputación. La jugada no es competir con su edge, es la capa portable con delegación por usuario, que a ellos no les interesa.
 
 **[2026-09-11]** Señal fuerte del lado estándar: el draft individual [Mission-Bound Authorization for OAuth 2.0](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/) (`draft-mcguinness-oauth-mission`) tiene revisión **latest publicada el 9/9/2026** en el sitio del autor ([HTML](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html); -00 en datatracker sigue fechado 6/7/2026). Define exactamente el objeto que esta tesis nombraba — *Mission*: Intent → Authority Set → approval con `intent_hash`/`authority_hash` → tokens con claim `mission`, gated por lifecycle — y deja runtime enforcement en un companion separado ([Mission Mandate](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-mandate.html), [Mission Runtime](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-runtime.html)). Incluye mapeo explícito de tools MCP a `mission_resource_access`. Sigue siendo individual submission, no WG; **no hay implementación de referencia usable**. La carencia de producto (verificador + consola de mandatos) no se cerró — se volvió más concreta: ahora hay un formato candidato contra el cual implementar.
+
+**[2026-09-15]** Sin revisión nueva del draft Mission post-9/9: [HTML latest](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html) sigue Published **9 September 2026**; datatracker `-00` sin bump ([datatracker](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/)). Suite de companions (runtime / resource-access) activa en el mismo repo del autor; sigue individual submission, sin implementación de referencia usable. Piloto local `agent-mandate` (`dev-write`) sigue hasta ~23/9 — no rebuild.
 
 **Estado:** ACELERA
 
@@ -127,6 +132,8 @@ La spec habilita el ruteo y deja explícitamente fuera de alcance todo lo demás
 
 **[2026-09-11]** Cloud vendors operacionalizan el gateway MCP: AWS publicó (1/9/2026) el post de Architecture [*MCP went stateless… Well-Architected*](https://aws.amazon.com/blogs/architecture/mcp-went-stateless-is-your-aws-mcp-server-deployment-well-architected/) mapeando 2026-07-28 al Agentic AI Lens, y AgentCore Gateway ya admite `2026-07-28` vía `UpdateGateway` ([ML blog](https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/)). En paralelo aparecen shims OSS de migración legacy→stateless ([mcp-uplift](https://github.com/MohibShaikh/mcp-uplift), [mcpsense-proxy](https://github.com/comerade2134/mcpsense-proxy)) y una lib que honra `ttlMs`/`cacheScope` ([mcp-cache-kit](https://github.com/studiomeyer-io/mcp-cache-kit)). Microsoft publicó (7/8/2026) el sample durable de **MCP Tasks** sobre App Service + Table Storage + Service Bus ([Tech Community](https://techcommunity.microsoft.com/blog/appsonazureblog/build-durable-long-running-mcp-tasks-on-azure-app-service/4545170)) — confirma que el handle de task ≠ trabajo durable. El shim de migración (idea SOLO #2) se está llenando; la caché de catálogo tiene primer kit. **Sigue vacío** el gateway de política *por herramienta* cross-cliente y un store durable *portable* (SQLite/Postgres, no atado a Azure) para Tasks/MRTR.
 
+**[2026-09-15]** **Corrección / señal fuerte del silo AWS:** el post de Architecture del 1/9 ya estaba; además Amazon Bedrock AgentCore Gateway documenta gobernanza **por herramienta y parámetro** con **Cedar** + modos LOG_ONLY/ENFORCE ([blog 21/8/2026](https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/); docs Policy). Eso **llena el hueco de política por tool dentro de AWS**. La carencia que queda (y justifica seguir ACELERA, no SE LLENÓ): gateway **portable** cross-cliente / no atado a AgentCore, con DLP/audit de args·resultados y store durable Tasks/MRTR fuera de Azure/AWS. Shim legacy→stateless y caché de catálogo siguen saturándose en OSS; **no** re-proponer SOLO #1.
+
 **Estado:** ACELERA
 
 ---
@@ -157,6 +164,8 @@ Es casi puramente de software, y es la más limpia de las cuatro tesis por una r
 12-24 meses, y con reloj visible: el estándar NERC se escribe *ahora* (borrador a diciembre 2026), y la filing de PJM tiene menos de dos semanas. Los incumbentes (consultoras de potencia, EMS como GE Vernova o Hitachi) están todos del lado *red*; del lado *cómputo* no hay nadie. Se cierra cuando NERC publique requisitos concretos y las consultoras grandes armen la práctica. Con el borrador ya en comment period y balloteo activo, el reloj empezó a correr en serio.
 
 **[2026-09-11]** Reloj vivo: el balloteo inicial de CLO-001-1 / CLO-002-1 / CLO-003-1 + FAC-001-5 / FAC-002-5 corre **9–18/9/2026** (cierra 18/9 20:00 ET); comment period ROP cierra el mismo día ([boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [ROP page](https://www.nerc.com/who-we-are/rules-of-procedure/proposed-changes-to-rules-of-procedure)). PJM IRAS / Large Load Registry (docket ER26-3515-000): comentarios cerraron 3/9; effective date pedida **12/10/2026** ([Power Mag](https://www.powermag.com/pjm-widens-response-to-data-center-load-as-capacity-shortfalls-deepen/); [Data Center Knowledge](https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts)). La carencia del traductor scheduler↔modelo eléctrico no tiene producto nuevo visible. **Bloqueo [SOLO] #1 (simulador):** validar predicción vs medición real exige cluster instrumentado (GPU/DCGM) que Matias no tiene — no proponer build hasta acceso a telemetría real o dataset público equivalente.
+
+**[2026-09-15]** Balloteo inicial + comment period CLO-001-1 / CLO-002-1 / CLO-003-1 (+ FAC-001-5 / FAC-002-5) y ROP **siguen abiertos hasta 18/9/2026 20:00 ET** — faltan ~3 días; **sin resultado publicado** todavía ([boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [weekly 8/9](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_09_08_weeklyregulatoryupdates.pdf)). Traductor scheduler↔modelo eléctrico: sin producto nuevo visible. Bloqueo SOLO simulador (cluster/DCGM) intacto.
 
 **Estado:** ACELERA
 
@@ -190,6 +199,8 @@ Corta — 6-12 meses, la más apretada de las cuatro, porque la obligación ya e
 
 **[2026-09-11]** Sin novedades de la Comisión Europea en la ventana 7–11/9 sobre Art. 50 / Code of Practice. Cuenta regresiva al **2/12/2026** (~82 días). El MVP del banco de destrucción C2PA sigue siendo el artefacto accionable; no hay señal externa nueva que justifique escalar a producto.
 
+**[2026-09-15]** Sin novedad verificada de la Comisión Europea sobre Art. 50 / Code of Practice en la ventana 11–15/9. Cuenta regresiva al **2/12/2026** (~78 días). Obligaciones Art. 50 vivas desde 2/8; C2PA sigue siendo camino técnico, no mandato legal automático ([FAQ Comisión](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act)). Banco 7/7 ffmpeg = ficha; no escalar a producto sin señal externa.
+
 **Estado:** ESTABLE
 
 ---
@@ -218,6 +229,8 @@ Falta exactamente lo que en el mundo Terraform resolvieron Terraform Cloud, Atla
 6-12 meses. La herramienta tiene días. Se cierra cuando Anthropic mismo construya el backend de estado (es la extensión obvia de lo que ya publicaron) o cuando HashiCorp/Pulumi anuncien soporte de providers para recursos de agentes.
 
 **[2026-09-11]** Cobertura comunitaria del patrón (QA/ops posts 8/9) pero **ningún backend remoto** apareció: `claude-lock.json` sigue sin locking distribuido; Anthropic no anunció estado compartido. La carencia (S3+lock / Atlantis-para-agentes) está igual de abierta. Pasa de NUEVA → ESTABLE: el patrón quedó confirmado, no aceleró el cierre del hueco.
+
+**[2026-09-15]** Sin anuncio de Anthropic de **remote state / locking distribuido** para `ant apply`. Guías comunitarias de CI reiteran: `claude-lock.json` hay que serializar a mano (un writer). SOLO #4 (lock HTTP live en Railway) cubre el wedge mínimo; stop deep. Atlantis-para-agentes / cross-vendor sigue vacío — no proponer rebuild del lock.
 
 **Estado:** ESTABLE
 
@@ -248,6 +261,8 @@ Cada proveedor está armando su propio protocolo de sesión larga sin ningún es
 
 **[2026-09-11]** Docs de OpenAI ahora explicitan patrones de *Reconnect and recover* tras el límite de 60 min / drop ([WebSocket Mode guide](https://developers.openai.com/api/docs/guides/websocket-mode)); el SDK Node expone helpers de reconnect con backoff. Confirma el hueco: la conexión-local cache muere con el socket; sin `store=true` + `previous_response_id` (o replay full input) no hay recuperación. Nadie productizó un gateway de checkpoint mid-tool-call multi-proveedor. Pasa NUEVA → ESTABLE.
 
+**[2026-09-15]** WebSocket Mode de OpenAI sigue siendo el referente público de sesión larga con tool-calling; docs de reconnect/recover sin cambio material vs 11/9 ([guía](https://developers.openai.com/api/docs/guides/websocket-mode)). Sin equivalente Anthropic/Google que fragmente el problema esta semana. Gateway de checkpoint mid-tool-call multi-proveedor: sin producto nuevo verificable. No proponer SOLO de proxy esta corrida (anti-wrapper).
+
 **Estado:** ESTABLE
 
 ---
@@ -277,7 +292,38 @@ Ninguna carta ni norma viene con la herramienta de cumplimiento adentro. Falta: 
 
 **[2026-09-11]** Dos relojes se aprietan: (1) OCC pide comentarios sobre **formularios de aplicación PPSI** (information collection) hasta el **25/9/2026** ([Federal Register 2026-15088](https://www.federalregister.gov/documents/2026/07/27/2026-15088/agency-information-collection-activities-proposed-information-collection-comment-request); [Orrick](https://infobytes.orrick.com/2026-07-31/occ-seeks-input-on-payment-stablecoin-licensing-and-registration-applications/)) — es la forma concreta del process de licensing, no la regla final; (2) consultation MAS P015-2026 sigue abierta hasta **16/10/2026** ([MAS](https://www.mas.gov.sg/publications/consultations/2026/consultation-on-proposed-amendments-to-the-payment-services-act-for-stablecoin-regulation)). Cliff estatutario GENIUS Act: **18/1/2027**. Sin regla final OCC todavía (promesa noviembre). La demanda de kit de compliance readiness sube con el detalle de los forms. Pasa NUEVA → ACELERA.
 
+**[2026-09-15]** Relojes sin moverse de fondo: (1) comment period OCC sobre **formularios PPSI** (information collection GENIUS Act) cierra **25/9/2026** ([Federal Register 2026-15088](https://www.federalregister.gov/documents/2026/07/27/2026-15088/agency-information-collection-activities-proposed-information-collection-comment-request)); (2) consultation MAS P015-2026 hasta **16/10/2026** ([MAS](https://www.mas.gov.sg/publications/consultations/2026/consultation-on-proposed-amendments-to-the-payment-services-act-for-stablecoin-regulation)). Sin regla final OCC. Cliff estatutario **18/1/2027**. Fit de Matías sigue débil vs apuesta WhatsApp (distribución LatAm/SMB > banking compliance US/SG) — vigilar, no laburo principal.
+
 **Estado:** ACELERA
+
+---
+
+### [2026-09-15] Tesis 8 — WhatsApp como riel de ops B2B/SMB en LatAm: el canal ya es la oficina, falta el loop con dato real
+
+**TL;DR:** En LatAm el WhatsApp *ya es* el sistema operativo informal de muchos SMBs. Meta industrializa órdenes/estado en Cloud API; los BSP cubren inbox genérico. Falta el producto delgado que ata **teléfono → verdad de negocio → respuesta o humano → log** en un solo workflow — no otro chatbot de FAQ.
+
+**Ámbito:** Ops / LatAm (distribución) · software-only
+
+**Qué pasó:**
+Meta documenta mensajes interactivos `order_details` / `order_status` (y templates de order status fuera de la ventana de 24h) en WhatsApp Cloud API / Payments — p.ej. flujos BR y order-status templates ([Orders BR](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/orders/); [order status template](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-in/orderstatustemplate/)). Eso valida la demanda de “estado de pedido” como verbo de producto, no solo marketing. En paralelo, el mercado LatAm de BSP/inbox (WATI, Chattigo, Twilio, etc.) empuja automatización genérica; el wedge elegido el 11/9 es más estrecho: un loop ops con fuente de verdad (Sheet/DB), no CRM completo ([wedge](builds/WEDGE-whatsapp-ops-latam.md)).
+
+**Por qué importa en 3–7 años:**
+*(Inferencia con precedente de adopción.)* Mientras el comercio y la atención B2B/SMB en LatAm sigan viviendo en WhatsApp, cualquier sistema de verdad (stock, pedido, turno) que no hable ese canal queda ciego. En 3–7 años el riel messaging→ops será tan dado por sentado como el email en SaaS US — la plata está en workflows verticales con dato, no en el transporte.
+
+**La carencia:**
+No falta “un bot”. Falta: (a) identidad por teléfono como primary key operativa; (b) conector mínimo a la verdad del negocio (Sheet/DB/ERP light); (c) respuesta con dato + escalación humana sin teatro de agentes; (d) log accionable. Los BSP resuelven mensajería; los CRMs resuelven pipeline de ventas — el medio ops cotidiano queda improvisado en la cabeza del vendedor.
+
+**Ideas paralelas:**
+1. `[SOLO]` **Wedge v0 ya diseñado (apuesta #1):** consulta estado pedido / reorder → ID por tel → Sheet/DB → respuesta o humano → log. Stack tentativo Cloud API + Node/Railway + Postgres/Sheet. *No build sin OK + acceso a conversaciones reales.*
+2. `[SOLO]` Verticalizar (repuestos, food wholesale, servicios de turno) solo después del piloto “me ahorra mensajes”.
+3. `[CAPITAL]` Suite multi-vertical WhatsApp-ops — solo si el wedge prueba retención diaria.
+
+**Ventana:**
+12–24 meses para aprender el vertical antes de que un BSP grande + Shopify/VTEX cierren el loop end-to-end en tu nicho. Kill: 8–12 semanas sin uso diario del loop, o cada cliente = proyecto a medida (agencia).
+
+**Riesgo vendor:** Meta cambia políticas Cloud API / pricing / plantillas; dependencia de BSP si el onboarding AR es más fácil que Cloud directo.
+
+**Estado:** NUEVA
 
 ---
 
