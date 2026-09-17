@@ -56,20 +56,22 @@ Reglas para la lista accionable:
 
 ## Última corrida
 
-**2026-09-15** (America/Argentina/Tucuman). Sin tesis net-new que pasen el filtro de apuesta (se formaliza T8 = apuesta #1 ya elegida). T1 sin revisión Mission post-9/9; T2 corrección: AWS AgentCore Policy/Cedar (21/8) llena el silo de política *por herramienta* — portable cross-cloud sigue abierto; T3 balloteo CLO **sigue abierto hasta 18/9 20:00 ET** (faltan ~3 días); T4 sin novedad Comisión (~78 días a 2/12); T5/T6 sin cierre del hueco; T7 relojes vivos (OCC forms **25/9**, MAS **16/10**). Ranking de laburo: seguir en wedge WhatsApp; no builds sin OK.
+**2026-09-17** (America/Argentina/Tucuman). Sin tesis net-new que pasen el filtro pala. T1 sin bump Mission post-9/9 (sigue Published 9/9; sin impl. de referencia); T2 sin cierre portable cross-cloud (AgentCore+Cedar sigue siendo silo AWS); T3 balloteo CLO **cierra 18/9/2026 20:00 ET** (~27 h) — sin resultado publicado; señal adyacente IEA/NVIDIA BESS refuerza narrativa sin abrir carencia nueva; T4 sin novedad Comisión (~76 días a 2/12); T5/T6 sin cierre del hueco; T7 relojes intactos (OCC forms **25/9**, MAS **16/10**; cliff GENIUS **18/1/2027**); T8 NUEVA / elegida — gate = conversaciones reales de plaza. Ranking de laburo: seguir wedge WhatsApp; cero código sin OK; post-18/9 leer resultado balloteo CLO.
+
+**AR / NOA (breve):** T8 encaja culturalmente (WhatsApp = OS informal SMB Tucumán/NOA). T3: AR no está bajo NERC, pero el patrón large-load + telemetría + flexibilidad se traduce vía CAMMESA/distribuidores / eventuales DC bajo RIGI — software de readiness > CAPEX. T7 local = PSAV (CNV RG 1058/2025), no régimen emisor tipo GENIUS.
 
 ## Tesis vivas
 
 | # | Tesis | Ámbito | Estado | Última revisión |
 |---|-------|--------|--------|-----------------|
-| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-15 |
-| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-15 |
-| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-15 |
-| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-15 |
-| 5 | Terraform para agentes | IA / infraestructura | ESTABLE | 2026-09-15 |
-| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | ESTABLE | 2026-09-15 |
-| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | ACELERA | 2026-09-15 |
-| 8 | WhatsApp como riel de ops B2B/SMB LatAm | Ops / LatAm | NUEVA | 2026-09-15 |
+| 1 | El mandato del agente | IA + Fintech/regulación | ACELERA | 2026-09-17 |
+| 2 | El plano de datos de MCP | IA / infraestructura | ACELERA | 2026-09-17 |
+| 3 | El traductor scheduler ↔ red eléctrica | Energía / hardware | ACELERA | 2026-09-17 |
+| 4 | Persistencia de procedencia (AI Act Art. 50) | Regulación | ESTABLE | 2026-09-17 |
+| 5 | Terraform para agentes | IA / infraestructura | ESTABLE | 2026-09-17 |
+| 6 | Sesiones persistentes agente↔modelo | IA / infraestructura | ESTABLE | 2026-09-17 |
+| 7 | Kit de cumplimiento bancos/stablecoins | Fintech / regulación | ACELERA | 2026-09-17 |
+| 8 | WhatsApp como riel de ops B2B/SMB LatAm | Ops / LatAm | NUEVA | 2026-09-17 |
 
 ---
 
@@ -101,6 +103,8 @@ Estimo 12-24 meses. Los drafts son individual/WG submissions, ninguno es RFC. SA
 **[2026-09-11]** Señal fuerte del lado estándar: el draft individual [Mission-Bound Authorization for OAuth 2.0](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/) (`draft-mcguinness-oauth-mission`) tiene revisión **latest publicada el 9/9/2026** en el sitio del autor ([HTML](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html); -00 en datatracker sigue fechado 6/7/2026). Define exactamente el objeto que esta tesis nombraba — *Mission*: Intent → Authority Set → approval con `intent_hash`/`authority_hash` → tokens con claim `mission`, gated por lifecycle — y deja runtime enforcement en un companion separado ([Mission Mandate](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-mandate.html), [Mission Runtime](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-runtime.html)). Incluye mapeo explícito de tools MCP a `mission_resource_access`. Sigue siendo individual submission, no WG; **no hay implementación de referencia usable**. La carencia de producto (verificador + consola de mandatos) no se cerró — se volvió más concreta: ahora hay un formato candidato contra el cual implementar.
 
 **[2026-09-15]** Sin revisión nueva del draft Mission post-9/9: [HTML latest](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html) sigue Published **9 September 2026**; datatracker `-00` sin bump ([datatracker](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/)). Suite de companions (runtime / resource-access) activa en el mismo repo del autor; sigue individual submission, sin implementación de referencia usable. Piloto local `agent-mandate` (`dev-write`) sigue hasta ~23/9 — no rebuild.
+
+**[2026-09-17]** Sin bump post-9/9 del draft Mission-Bound Authorization: latest sigue **Published 9 September 2026** (`draft-mcguinness-oauth-mission-latest`), individual submission (no WG). Companions (runtime / resource-access / expansion) activos en el mismo repo del autor; datatracker `-00` sin bump WG. **Sin implementación de referencia usable.** Piloto local `agent-mandate` (SOLO #2) sigue hasta ~23/9 — no rebuild / no re-proponer “verificador + demo MCP”. Fuentes: [HTML Mission](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-oauth-mission.html); [datatracker](https://datatracker.ietf.org/doc/draft-mcguinness-oauth-mission/); [runtime](https://mcguinness.github.io/mission-bound-authorization/draft-mcguinness-mission-runtime.html). Impacto: formato candidato del objeto “misión/mandato” confirmado; carencia de producto (verificador portable + consola de mandatos) **sigue abierta**.
 
 **Estado:** ACELERA
 
@@ -134,6 +138,8 @@ La spec habilita el ruteo y deja explícitamente fuera de alcance todo lo demás
 
 **[2026-09-15]** **Corrección / señal fuerte del silo AWS:** el post de Architecture del 1/9 ya estaba; además Amazon Bedrock AgentCore Gateway documenta gobernanza **por herramienta y parámetro** con **Cedar** + modos LOG_ONLY/ENFORCE ([blog 21/8/2026](https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/); docs Policy). Eso **llena el hueco de política por tool dentro de AWS**. La carencia que queda (y justifica seguir ACELERA, no SE LLENÓ): gateway **portable** cross-cliente / no atado a AgentCore, con DLP/audit de args·resultados y store durable Tasks/MRTR fuera de Azure/AWS. Shim legacy→stateless y caché de catálogo siguen saturándose en OSS; **no** re-proponer SOLO #1.
 
+**[2026-09-17]** Sin cierre del hueco **portable** cross-cloud. AgentCore Gateway + Cedar sigue llenando el silo de política *por herramienta* **dentro de AWS** (default-deny, forbid-wins, LOG_ONLY→ENFORCE) — señal ya del 15/9; no cambia la carencia cross-cliente. Spec MCP **2026-07-28** + guías serverless (AWS Architecture, [Cloudflare MCP v2](https://blog.cloudflare.com/mcp-v2/)) validan el modelo ruteable por HTTP sin cerrar gateway DLP/audit portable ni store durable Tasks/MRTR fuera de hyperscaler. Anthropic reporta adopción masiva de SDKs MCP / conectores en Claude ([bringing MCP 2026-07-28](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)) — acelera demanda de intermediarios, no cierra el producto portable. Fuentes: [Cedar/AgentCore Security](https://aws.amazon.com/blogs/security/why-policy-in-amazon-bedrock-agentcore-chose-cedar-for-securing-agentic-workflows/); [govern tool access](https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/); [MCP Well-Architected](https://aws.amazon.com/blogs/architecture/mcp-went-stateless-is-your-aws-mcp-server-deployment-well-architected/). Impacto: mantiene ACELERA; **no** re-proponer SOLO #1.
+
 **Estado:** ACELERA
 
 ---
@@ -166,6 +172,8 @@ Es casi puramente de software, y es la más limpia de las cuatro tesis por una r
 **[2026-09-11]** Reloj vivo: el balloteo inicial de CLO-001-1 / CLO-002-1 / CLO-003-1 + FAC-001-5 / FAC-002-5 corre **9–18/9/2026** (cierra 18/9 20:00 ET); comment period ROP cierra el mismo día ([boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [ROP page](https://www.nerc.com/who-we-are/rules-of-procedure/proposed-changes-to-rules-of-procedure)). PJM IRAS / Large Load Registry (docket ER26-3515-000): comentarios cerraron 3/9; effective date pedida **12/10/2026** ([Power Mag](https://www.powermag.com/pjm-widens-response-to-data-center-load-as-capacity-shortfalls-deepen/); [Data Center Knowledge](https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts)). La carencia del traductor scheduler↔modelo eléctrico no tiene producto nuevo visible. **Bloqueo [SOLO] #1 (simulador):** validar predicción vs medición real exige cluster instrumentado (GPU/DCGM) que Matias no tiene — no proponer build hasta acceso a telemetría real o dataset público equivalente.
 
 **[2026-09-15]** Balloteo inicial + comment period CLO-001-1 / CLO-002-1 / CLO-003-1 (+ FAC-001-5 / FAC-002-5) y ROP **siguen abiertos hasta 18/9/2026 20:00 ET** — faltan ~3 días; **sin resultado publicado** todavía ([boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [weekly 8/9](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_09_08_weeklyregulatoryupdates.pdf)). Traductor scheduler↔modelo eléctrico: sin producto nuevo visible. Bloqueo SOLO simulador (cluster/DCGM) intacto.
+
+**[2026-09-17]** Reloj crítico: balloteo inicial + comment period Project **2026-02 Computational Loads** (CLO-001-1 / CLO-002-1 / CLO-003-1 + FAC-001-5 / FAC-002-5) y comentarios ROP (entidades **Computational Load Owner** / **Operator**) **siguen abiertos hasta 18/9/2026 20:00 Eastern** (~27 h desde esta corrida). **Sin resultado de balloteo publicado.** Join ballot pools cerró 3/9. Traductor telemetría cluster (DCGM/Redfish) → parámetros de modelo de carga: **sin producto nuevo visible**. Bloqueo SOLO simulador (sin cluster GPU / dataset público) **intacto** — no proponer build. Señal adyacente (no abre tesis): IEA proyecta ~20–25 GW BESS en data centers hacia 2030; NVIDIA posiciona BESS en DSX como grid-interactive — refuerza demanda de telemetría/flexibilidad, **no** sustituye el traductor. Fuentes: [boletín NERC 31/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_31_standardscompliancebulletin.pdf); [boletín 24/8](https://www.nerc.com/globalassets/programs/compliance/bulletins/2026_08_24_standardscompliancebulletin.pdf); [IEA Key Questions](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary); [NVIDIA BESS](https://developer.nvidia.com/blog/designing-production-ready-battery-energy-storage-systems-for-ai-factories/). Impacto: ACELERA; próxima corrida = leer resultado balloteo / comments ROP.
 
 **Estado:** ACELERA
 
@@ -201,6 +209,8 @@ Corta — 6-12 meses, la más apretada de las cuatro, porque la obligación ya e
 
 **[2026-09-15]** Sin novedad verificada de la Comisión Europea sobre Art. 50 / Code of Practice en la ventana 11–15/9. Cuenta regresiva al **2/12/2026** (~78 días). Obligaciones Art. 50 vivas desde 2/8; C2PA sigue siendo camino técnico, no mandato legal automático ([FAQ Comisión](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act)). Banco 7/7 ffmpeg = ficha; no escalar a producto sin señal externa.
 
+**[2026-09-17]** Sin novedad verificada de la Comisión / AI Office en la ventana 15–17/9 sobre Art. 50, Guidelines o Code of Practice. Obligaciones Art. 50 **aplican desde 2/8/2026**; grace Art. 50(2) para sistemas pre-2/8 → cumplimiento desde **2/12/2026** (~76 días). Code of Practice = voluntario (evaluado como adecuado jul 2026); **no reemplaza** la ley. C2PA/CAWG = camino técnico, no mandato legal automático. Banco SOLO #3 (`c2pa-ffmpeg-preserve`, 7/7) = ficha; **no escalar a producto** sin señal externa. Fuentes: [FAQ Art. 50](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act); [Code of Practice](https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content); [opinion Comisión](https://digital-strategy.ec.europa.eu/en/library/commission-opinion-assessment-code-practice-transparency-ai-generated-content); [guidelines](https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems). Impacto: ESTABLE; reloj de demanda a 2/12; no reabrir SOLO #3 deep.
+
 **Estado:** ESTABLE
 
 ---
@@ -231,6 +241,8 @@ Falta exactamente lo que en el mundo Terraform resolvieron Terraform Cloud, Atla
 **[2026-09-11]** Cobertura comunitaria del patrón (QA/ops posts 8/9) pero **ningún backend remoto** apareció: `claude-lock.json` sigue sin locking distribuido; Anthropic no anunció estado compartido. La carencia (S3+lock / Atlantis-para-agentes) está igual de abierta. Pasa de NUEVA → ESTABLE: el patrón quedó confirmado, no aceleró el cierre del hueco.
 
 **[2026-09-15]** Sin anuncio de Anthropic de **remote state / locking distribuido** para `ant apply`. Guías comunitarias de CI reiteran: `claude-lock.json` hay que serializar a mano (un writer). SOLO #4 (lock HTTP live en Railway) cubre el wedge mínimo; stop deep. Atlantis-para-agentes / cross-vendor sigue vacío — no proponer rebuild del lock.
+
+**[2026-09-17]** Docs oficiales de `ant apply` (CLI ≥1.30) siguen explícitas: hay que correr **un apply a la vez** porque **nada lockea el lockfile** (`claude-lock.json`); serializar writers; commitear el lockfile incluso tras fallos parciales. **Sin anuncio Anthropic de remote state / locking distribuido.** SOLO #4 (`ant-apply-remote-state`, lock HTTP + `demo:race` PASS) cubre el wedge mínimo — **stop deep**. Fuentes: [docs apply](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/apply). Impacto: ESTABLE; Atlantis-para-agentes / cross-vendor sigue abierto; **no** rebuild del lock.
 
 **Estado:** ESTABLE
 
@@ -263,6 +275,8 @@ Cada proveedor está armando su propio protocolo de sesión larga sin ningún es
 
 **[2026-09-15]** WebSocket Mode de OpenAI sigue siendo el referente público de sesión larga con tool-calling; docs de reconnect/recover sin cambio material vs 11/9 ([guía](https://developers.openai.com/api/docs/guides/websocket-mode)). Sin equivalente Anthropic/Google que fragmente el problema esta semana. Gateway de checkpoint mid-tool-call multi-proveedor: sin producto nuevo verificable. No proponer SOLO de proxy esta corrida (anti-wrapper).
 
+**[2026-09-17]** OpenAI **WebSocket Mode** (Responses API) sigue siendo el referente público de sesión larga con tool-calling asíncrono / mid-turn steering; docs reconnect/recover sin cambio material vs 15/9 (límite ~60 min; recuperación vía `store` + `previous_response_id` o replay). **Sin equivalente Anthropic o Google** que fragmente el problema esta ventana. Gateway de checkpoint mid-tool-call **multi-proveedor**: sin producto nuevo verificable. No proponer SOLO proxy (anti-wrapper / apuesta #1 ya elegida). Fuentes: [WebSocket Mode guide](https://developers.openai.com/api/docs/guides/websocket-mode); [OpenAI index](https://openai.com/index/speeding-up-agentic-workflows-with-websockets/). Impacto: ESTABLE; carencia portable intacta; ventana corta si otro vendor shippea semántica incompatible.
+
 **Estado:** ESTABLE
 
 ---
@@ -294,6 +308,8 @@ Ninguna carta ni norma viene con la herramienta de cumplimiento adentro. Falta: 
 
 **[2026-09-15]** Relojes sin moverse de fondo: (1) comment period OCC sobre **formularios PPSI** (information collection GENIUS Act) cierra **25/9/2026** ([Federal Register 2026-15088](https://www.federalregister.gov/documents/2026/07/27/2026-15088/agency-information-collection-activities-proposed-information-collection-comment-request)); (2) consultation MAS P015-2026 hasta **16/10/2026** ([MAS](https://www.mas.gov.sg/publications/consultations/2026/consultation-on-proposed-amendments-to-the-payment-services-act-for-stablecoin-regulation)). Sin regla final OCC. Cliff estatutario **18/1/2027**. Fit de Matías sigue débil vs apuesta WhatsApp (distribución LatAm/SMB > banking compliance US/SG) — vigilar, no laburo principal.
 
+**[2026-09-17]** Relojes intactos: (1) OCC comment period sobre formularios / information collection para *permitted payment stablecoin issuers* (GENIUS Act) cierra **25/9/2026** ([FR 2026-15088](https://www.federalregister.gov/documents/2026/07/27/2026-15088/agency-information-collection-activities-proposed-information-collection-comment-request); [govinfo](https://www.govinfo.gov/content/pkg/FR-2026-07-27/html/2026-15088.htm)); (2) MAS consultation PSA enmiendas stablecoins hasta **16/10/2026** ([MAS](https://www.mas.gov.sg/news/media-releases/2026/mas-consults-on-legislative-amendments-to-implement-stablecoin-regulatory-framework)); (3) GENIUS Act ya es ley (PL 119-27, firmada 18/7/2025) — cliff emisión no-permitida **18/1/2027**; regla final OCC aún prometida nov 2026, **sin publicación final verificada**. Fit Matías sigue **débil** vs apuesta WhatsApp — vigilar, no laburo principal. Fuentes adicionales: [White House fact sheet](https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/); [Congress S.1582](https://www.congress.gov/bill/119th-congress/senate-bill/1582). Impacto: ACELERA por countdown forms/consultation; no construir kit US/SG como apuesta principal.
+
 **Estado:** ACELERA
 
 ---
@@ -322,6 +338,8 @@ No falta “un bot”. Falta: (a) identidad por teléfono como primary key opera
 12–24 meses para aprender el vertical antes de que un BSP grande + Shopify/VTEX cierren el loop end-to-end en tu nicho. Kill: 8–12 semanas sin uso diario del loop, o cada cliente = proyecto a medida (agencia).
 
 **Riesgo vendor:** Meta cambia políticas Cloud API / pricing / plantillas; dependencia de BSP si el onboarding AR es más fácil que Cloud directo.
+
+**[2026-09-17]** Sin señal Meta nueva en 15–17/9 que abra `order_details` / `order_status` (Payments Cloud API) de forma generalizada más allá del rail **Brasil** ya documentado (WABA BR, BRL, Pix/boleto/payment-link). BSPs siguen cubriendo inbox genérico; el wedge (11/9, formalizado 15/9) sigue estrecho: **teléfono → verdad de negocio (Sheet/DB) → respuesta o humano → log**. Wedge en repo (`builds/WEDGE-whatsapp-ops-latam.md`). **Gate = acceso a conversaciones reales de plaza + vertical concreto. Sin build hasta OK explícito.** Fuentes: [Orders BR](https://developers.facebook.com/docs/whatsapp/cloud-api/payments-api/payments-br/orders/); [Orders BR (alt)](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/orders/). Impacto: sigue **NUEVA** / apuesta #1; ranking de laburo = dato real de plaza; **cero código sin OK**.
 
 **Estado:** NUEVA
 
